@@ -1,0 +1,36 @@
+<div class="container" style="margin-top: 10%;">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="card">
+          <div class="card-header text-center">
+            Sign in to your dashboard
+          </div>
+          <div class="card-body pb-4">
+            <div *ngIf="errorMessage" class="alert alert-danger small p-2 text-center">
+              {{ errorMessage }}
+            </div>
+            <div class="form-group mt-4 mb-4">
+              <input id="username" type="text" class="form-control" placeholder="Username" formControlName="username" 
+                [ngClass]="{'is-invalid': loginForm.controls.username.invalid && (loginForm.controls.username.touched || isSubmitted)}">
+              <div *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.touched || isSubmitted)" class="text-danger small mt-1">
+                Username is required
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <input id="password" type="password" class="form-control" placeholder="Password" formControlName="password" 
+                [ngClass]="{'is-invalid': loginForm.controls.password.invalid && (loginForm.controls.password.touched || isSubmitted)}">
+              <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.touched || isSubmitted)" class="text-danger small mt-1">
+                Password is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary text-uppercase" [disabled]="isLoading">
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              <span class="small" *ngIf="!isLoading">Sign In</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

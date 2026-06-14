@@ -1,0 +1,20 @@
+<div class="table-responsive border border-secondary border-opacity-25 rounded-3">
+    <table class="table table-bordered mb-0 text-center align-middle">
+        <thead class="text-secondary bg-light small">
+            <tr>
+                <th scope="col" class="py-3">#</th>
+                <th scope="col" class="py-3">First Name</th>
+                <th scope="col" class="py-3">Last Name</th>
+                <th scope="col" class="py-3">User Name</th>
+            </tr>
+        </thead>
+        <tbody class="text-secondary opacity-75">
+            <tr *ngFor="let user of tableUserData; let idx = index">
+                <td scope="row" class="py-3 fw-normal">{{ idx + 1 }}</td>
+                <td class="py-3">{{ user.firstName }}</td>
+                <td class="py-3">{{ user.lastName }}</td>
+                <td class="py-3">{{ user.username }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
